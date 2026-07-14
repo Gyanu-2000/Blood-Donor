@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request
 import sqlite3
 
-app = Flask(__name__)
+import os
+
+app = Flask(
+    __name__,
+    template_folder=os.path.join(os.path.dirname(__file__), "templates"),
+    static_folder=os.path.join(os.path.dirname(__file__), "static"),
+)
 
 # Create Database Table
 def init_db():
